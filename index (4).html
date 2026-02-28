@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Mood Reader 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8, #fff);
+            text-align: center;
+            overflow-x: hidden;
+            color: #444;
+        }
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #ff4f81;
+            font-size: 38px;
+        }
+
+        img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ff4f81;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        p {
+            max-width: 700px;
+            margin: 15px auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background: #ff4f81;
+            color: white;
+        }
+
+        .yes:hover {
+            background: #ff2e6a;
+        }
+
+        .no {
+            background: #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            top: -10px;
+            color: #ff4f81;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <h1>Anshika Ji 🤍</h1>
+
+    <img src="anshika.jpg" alt="Best Friend">
+
+    <button onclick="showMessage()">Please Click 🥺</button>
+
+    <div id="message" class="hidden">
+
+        <p><strong>Anshika ji… 🤍</strong></p>
+
+        <p>
+        Mujhe pata hai aap kyun gussa ho…  
+        Pehle main aapko bina bole samajh jata tha…  
+        aur shayad ab main utna dhyaan nahi de pa raha.
+        </p>
+
+        <p>
+        Par sach yeh hai…  
+        meri care kabhi kam nahi hui.  
+        Bas main thoda careless ho gaya.
+        </p>
+
+        <p>
+        Main phir se wahi banna chahta hoon —  
+        jo aapke “theek hoon” ke peeche ka “theek nahi hoon” samajh jaye.
+        </p>
+
+        <p>
+        Aap meri aadat ho…  
+        aur aadatein chhodi nahi jaati, sambhali jaati hain. 💖
+        </p>
+
+        <p><strong>Can we fix this… together?</strong></p>
+
+        <button class="yes" onclick="alert('Yayyy 🤍 Thank youuuuu!')">Yes 💕</button>
+        <button class="no" onmouseover="moveButton(this)">No 😅</button>
+
+    </div>
+
+</div>
+
+<script>
+
+function showMessage() {
+    document.getElementById("message").classList.remove("hidden");
+}
+
+/* Moving No Button */
+function moveButton(btn) {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+}
+
+/* Falling Hearts Animation */
+setInterval(function() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+
+}, 500);
+
+</script>
+
+</body>
+</html>
